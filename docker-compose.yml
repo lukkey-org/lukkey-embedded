@@ -1,0 +1,8 @@
+services:
+  build:
+    build: .
+    image: lukkey-builder:latest
+    volumes:
+      - .:/workspace
+      - ${TOOLCHAIN_PATH}:/opt/toolchain:ro
+    working_dir: /workspace

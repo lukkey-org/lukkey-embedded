@@ -1,13 +1,105 @@
-# Build outputs
-build/
-dist/
-out/
+# Public repository allowlist.
+# Default: ignore everything unless explicitly unignored below.
+*
 
-# Local environment
+# Repository metadata and public top-level files.
+!.gitignore
+!.dockerignore
+!.gitmodules
+!README.md
+!LICENSE
+!Dockerfile
+!docker-compose.yml
+!lv_conf.h
+
+# Public build configuration snippets.
+!cmake/
+!cmake/compiler_flags.cmake
+!cmake/third_party.cmake
+!cmake/toolchain-arm.cmake
+
+# Public third-party source submodules only.
+!third_party/
+!third_party/freetype
+!third_party/libdrm
+!third_party/libjpeg-turbo
+!third_party/lvgl
+!third_party/rlottie
+
+# Public framework/source subset.
+!lukkey/
+!lukkey/src/
+!lukkey/src/utils/
+!lukkey/src/utils/**
+!lukkey/src/hal/
+!lukkey/src/hal/**
+!lukkey/src/gui/
+!lukkey/src/gui/viewstack.c
+!lukkey/src/gui/viewstack.h
+
+# Hard safety blocks for secrets, generated outputs, binaries, and private modules.
 .env
 .env.*
-
-# Editor files
 .DS_Store
-.idea/
+*.log
+*.pem
+*.key
+*.der
+*.crt
+*.csr
+*.p12
+*.pfx
+*.sig
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.elf
+*.bin
+*.hex
+*.zip
+*.tar
+*.tar.*
+*.tgz
+*.gz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.pdf
+*.o
+*.obj
+*.ko
+*.mod*
+*.cmd
+*.d
+*.map
+*.su
+*.dSYM/
+
+build/
+cmake_build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+Makefile
+Makefile.cmake
+
+scripts/
+tools/
+ota/
+docs/
+assert/
+drivers/
+lukkey_algo/
+.cursor/
+.codex/
 .vscode/
+library/
+library_aarch64/
+library_x86_64/
+lvgl_build/
